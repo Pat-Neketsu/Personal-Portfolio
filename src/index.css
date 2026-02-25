@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap");
+@import "tailwindcss";
+
+/*Custom Themes for my portfolio*/
+@theme {
+  --color-background: #0b1416;
+  --color-foreground: #e0f2f1;
+
+  --color-primary: #00ffd5;
+  --color-primary-foreground: #042f2c;
+
+  --color-card: #162427;
+  --color-card-foreground: #e0f2f1;
+
+  --color-secondary: #9d50bb;
+  --color-secondary-foreground: #ffffff;
+
+  --color-muted: #1a2e32;
+  --color-muted-foreground: #94a3b8;
+
+  --color-border: #2d3f43;
+  --color-highlight: #f92672;
+  --color-surface: #121f21;
+
+  --font-family-sans: "Sora", sans-serif;
+  --font-family-display: "Space Grotesk", sans-serif;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-family-sans);
+  }
+
+  .font-serif {
+    font-family: var(--font-family-display);
+  }
+}
+
+/*Here we can add custome styling that we can use in tailwind*/
+@layer components {
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+}
