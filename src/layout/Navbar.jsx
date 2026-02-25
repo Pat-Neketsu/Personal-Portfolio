@@ -1,4 +1,6 @@
 import { Button } from "@/Components/Button";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 //This is a Javascript list or a dictionary by Java??
 //It is used for easy linking for the navigation bar
 const NavLink = [
@@ -9,6 +11,7 @@ const NavLink = [
 ];
 
 export const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <header className="fixed top-0 right-0 left-0 bg-transparent py-5 ">
       <nav className="container mx-auto px-6 flex items-center justify-between">
@@ -35,14 +38,38 @@ export const Navbar = () => {
         </div>
         {/* CTA Button */}
         <div>
-          <Button size="sm" className="hidden md:block">Contact Me</Button>
+          <Button size="sm" className="hidden md:block">
+            Contact Me
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
-        <button className="md:hidden p-2 text-foreground">
-
+        <button
+          className="md:hidden p-2 text-foreground cursor-pointer"
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden glass-strong animate-fade-in">
+          <div className="container mx-auto px-6 py-6 flex flex-col gap-4 ">
+            {NavLink.map((link, index) => (
+              <a
+                href={link.href}
+                key={index}
+                className="text-lg text-muted-foreground hover:text-foreground py-2"
+              >
+                {link.label}
+              </a>
+            ))}
+
+            <Button>Contact Me</Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
