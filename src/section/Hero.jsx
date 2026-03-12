@@ -1,4 +1,4 @@
-import { Button } from "@/components/Button";
+import { Button } from "@/Components/Button";
 import { ArrowRight, ChevronDown, Github, Linkedin } from "lucide-react";
 /* eslint-disable no-unused-vars */
 
