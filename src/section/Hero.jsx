@@ -1,6 +1,12 @@
 import { Button } from "@/Components/Button";
-import { ArrowRight, ChevronDown, Github, Linkedin } from "lucide-react";
-/* eslint-disable no-unused-vars */
+import {
+  ArrowRight,
+  ChevronDown,
+  Download,
+  Github,
+  Linkedin,
+} from "lucide-react";
+import { AnimatedBorderButton } from "../Components/AnimatedBorderButton";
 
 const skills = [
   "C#",
@@ -34,6 +40,7 @@ export const Hero = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
+            key={i}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#0AE3F2",
@@ -82,32 +89,40 @@ export const Hero = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-700">
-              <Button size="lg">
-                Contact Me <ArrowRight />
-              </Button>
-              {/* Social Links */}
-              <div className="flex items-center gap-4">
-                <span className="text-2xl text-muted-foreground">
-                  Follow me:{" "}
-                </span>
-                {[
-                  { icon: Github, href: "https://github.com/Pat-Neketsu" },
-                  {
-                    icon: Linkedin,
-                    href: "https://www.linkedin.com/in/justine-artates-8280b7383/",
-                  },
-                ].map((social, idx) => (
-                  <a
-                    href={social.href}
-                    key={idx}
-                    target="blank"
-                    className="p-2 rounded-full glass hover:bg-primary/20 hover:text-primary transition-all duration-200"
-                  >
-                    {<social.icon />}
-                  </a>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-5 animate-fade-in animation-delay-700">
+              <a href="#contact">
+                <Button size="lg">
+                  Contact Me <ArrowRight />
+                </Button>
+              </a>
+              <a href="/cv.pdf" download="Artates_CV.pdf">
+              <AnimatedBorderButton>
+                <Download />
+                Download CV
+              </AnimatedBorderButton>
+              </a>
+            </div>
+            {/* Social Links */}
+            <div className="flex items-center gap-4 animate-fade-in animation-delay-900">
+              <span className="text-2xl text-muted-foreground">
+                Follow me:{" "}
+              </span>
+              {[
+                { icon: Github, href: "https://github.com/Pat-Neketsu" },
+                {
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/justine-artates-8280b7383/",
+                },
+              ].map((social, idx) => (
+                <a
+                  href={social.href}
+                  key={idx}
+                  target="blank"
+                  className="p-2 rounded-full glass hover:bg-primary/20 hover:text-primary transition-all duration-200"
+                >
+                  {<social.icon />}
+                </a>
+              ))}
             </div>
           </div>
 

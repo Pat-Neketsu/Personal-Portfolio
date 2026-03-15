@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 //It is used for easy linking for the navigation bar
 const NavLink = [
   { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
 ];
 
@@ -51,9 +51,11 @@ export const Navbar = () => {
         </div>
         {/* CTA Button */}
         <div>
-          <Button size="sm" className="hidden md:block">
-            Contact Me
-          </Button>
+          <a href="#contact">
+            <Button size="sm" className="hidden md:block">
+              Contact Me
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Navigation */}
@@ -79,8 +81,11 @@ export const Navbar = () => {
                 {link.label}
               </a>
             ))}
-
-            <Button onClick={() => setIsMobileMenuOpen(false)}>Contact Me</Button>
+            <a href="#contact">
+              <Button onClick={() => setIsMobileMenuOpen(false)}>
+                Contact Me
+              </Button>
+            </a>
           </div>
         </div>
       )}

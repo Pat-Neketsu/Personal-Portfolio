@@ -5,6 +5,7 @@ import { Projects } from "@/section/Projects";
 import { Education } from "@/section/Education";
 import { Skills } from "@/section/Skills";
 import { Contact } from "@/section/Contact";
+import { Footer } from "@/layout/Footer"
 
 
 function App() {
@@ -14,11 +15,12 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Skills />
         <Projects />
+        <Skills />
         <Education />
         <Contact />
       </main>
+      <Footer/>
     </div>
   );
 }
