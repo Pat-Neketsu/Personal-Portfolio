@@ -1,5 +1,6 @@
 import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "../Components/AnimatedBorderButton";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -22,7 +23,14 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-32 relative overflow-hidden">
+    <motion.section
+      id="projects"
+      className="py-32 relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       {/* BG Glows */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
@@ -107,6 +115,6 @@ export const Projects = () => {
           </AnimatedBorderButton>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

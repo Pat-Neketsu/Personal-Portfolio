@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const education = [
   {
     education: "Elementary Education",
@@ -44,7 +46,14 @@ const education = [
 ];
 export const Education = () => {
   return (
-    <section id="education" className="py-32 relative overflow-hidden">
+    <motion.section
+      id="education"
+      className="py-32 relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
       <div className="container mx-auto px-6 relative z-10">
         {/* Secton Header */}
@@ -78,7 +87,9 @@ export const Education = () => {
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-secondary rounded-full -translate-x-1/2 ring-2 ring-primary z-10">
-                  {education.current && <span className="absolute inset-0 rounded-full bg-primary animate-ping"/>}
+                  {education.current && (
+                    <span className="absolute inset-0 rounded-full bg-primary animate-ping" />
+                  )}
                 </div>
 
                 {/* Content */}
@@ -110,6 +121,6 @@ export const Education = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

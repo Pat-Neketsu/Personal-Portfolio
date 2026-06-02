@@ -2,6 +2,7 @@ import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from "lucide-reac
 import { Button } from "@/Components/Button";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 const contactInfo = [
   {
@@ -77,7 +78,14 @@ export const Contact = () => {
     }
   };
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
+    <motion.section
+      id="contact"
+      className="py-32 relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
@@ -231,13 +239,14 @@ export const Contact = () => {
                 <span className="font-medium">Currently Studying</span>
               </div>
               <p className="text-muted-foreground text-sm">
-                I'm currently studying to expand my knowledge on frameworks, Languages and the
-                industry. Feel free to reach out and thank you for giving your time.
+                I'm currently studying to expand my knowledge on frameworks,
+                Languages and the industry. Feel free to reach out and thank you
+                for giving your time.
               </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

@@ -8,6 +8,7 @@ import {
   Zap,
   Gamepad2,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const skill = [
   {
@@ -61,7 +62,14 @@ const skill = [
 ];
 export const Skills = () => {
   return (
-    <section className="py-32" id="skills">
+    <motion.section
+      className="py-32"
+      id="skills"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       {/* Section Header */}
       <div className="container mx-auto px-6">
         <div className="text-center mx-auto max-w-3xl mb-16">
@@ -104,6 +112,6 @@ export const Skills = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

@@ -1,4 +1,5 @@
 import { BrainCircuit, Code2, Lightbulb, Users } from "lucide-react";
+import { motion } from "framer-motion"
 
 const highlights = [
   {
@@ -29,7 +30,14 @@ const highlights = [
 
 export const About = () => {
   return (
-    <section className="py-32 relative overflow-hidden" id="about">
+    <motion.section
+      className="py-32 relative overflow-hidden"
+      id="about"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column */}
@@ -92,6 +100,6 @@ export const About = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
